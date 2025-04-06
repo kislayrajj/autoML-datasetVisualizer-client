@@ -1,5 +1,8 @@
 # React + Vite
 
 # autoML-datasetVisualizer-client
-## visualizes given dataset using evaluation metric received form backend.
+### Machine Learning Project
+## This web app Visualizes given dataset using evaluation metrics received form backend.
+
+
 
