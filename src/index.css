@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* :root {
+:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,9 +12,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} */
-:root{
+}
+/* :root{
   background-image: linear-gradient(to right top, #6f6f4f, #7f6849, #8d604d, #96585b, #935571, #865c87, #6d6598, #4b6fa1, #287a9f, #218393, #3c8983, #5b8c74);
   height:  100vh;
   color: white;
-}
+} */
