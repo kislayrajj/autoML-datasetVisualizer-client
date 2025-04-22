@@ -9,6 +9,7 @@ import {
   LinearScale,
   PointElement,
   LineElement, // Keep registered even if no line charts currently used
+  LineController,
   Tooltip,
   Legend,
   Title,
