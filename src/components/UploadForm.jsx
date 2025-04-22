@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const UploadForm = ({ onResult }) => {
   const [file, setFile] = useState(null);
@@ -11,7 +12,7 @@ const UploadForm = ({ onResult }) => {
   const handleIconClick = () => fileInputRef.current.click();
 
   useEffect(() => {
-    fetch("http://localhost:8000/models")
+    fetch(`${API_BASE}/models`)
       .then((res) => res.json())
       .then((data) => {
         setAvailableModels(data[task]);
@@ -29,7 +30,7 @@ const UploadForm = ({ onResult }) => {
     if (algorithm) formData.append("algorithm", algorithm);
 
     try {
-      const res = await axios.post("http://localhost:8000/train", formData);
+      const res = await axios.post(`${API_BASE}/train`, formData);
       onResult(res.data);
     } catch (err) {
       console.error("Backend error:", err.response?.data || err.message);
@@ -50,12 +51,16 @@ const UploadForm = ({ onResult }) => {
           onChange={(e) => setFile(e.target.files[0])}
           className="hidden"
         />
-        
+
         <button
           type="button"
           onClick={handleIconClick}
-          className={`${file ? "size-12":"h-12"} h-12 px-2 bg-black text-white rounded-md flex justify-center items-center gap-2 hover:bg-gray-700 transition`}
-          title="Upload CSV"> { file? "" :"Upload File"}
+          className={`${
+            file ? "size-12" : "h-12"
+          } h-12 px-2 bg-black text-white rounded-md flex justify-center items-center gap-2 hover:bg-gray-700 transition`}
+          title="Upload CSV">
+          {" "}
+          {file ? "" : "Upload File"}
           <i className="fa-solid fa-file-csv text-xl" />
         </button>
         <span className="text-sm">{file?.name || "No file chosen"}</span>
