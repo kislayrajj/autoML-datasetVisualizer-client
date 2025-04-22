@@ -19,6 +19,7 @@ import {
 
 // Register necessary Chart.js components and plugins for use
 ChartJS.register(
+  LineController,
   BarElement,
   CategoryScale,
   LinearScale,
